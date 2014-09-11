@@ -8,6 +8,7 @@
     <string-array name="sequences">
         <item>Fibonacci</item>
         <item>Square</item>
+        <item>Recaman</item>
     </string-array>
 
 </resources>

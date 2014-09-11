@@ -16,9 +16,9 @@ public class MyActivity extends ListActivity {
         setContentView(R.layout.list_activity);
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        String[] stringArray = getResources().getStringArray(R.array.sequences);
-        for (String string : stringArray) {
-            actionBar.addTab(actionBar.newTab().setText(string).setTabListener(tabListener));
+        String[] sequences = getResources().getStringArray(R.array.sequences);
+        for (String sequence : sequences) {
+            actionBar.addTab(actionBar.newTab().setText(sequence).setTabListener(tabListener));
         }
     }
 
@@ -33,6 +33,9 @@ public class MyActivity extends ListActivity {
                     break;
                 case 1:
                     numberSequence = new SquareSequence();
+                    break;
+                case 2:
+                    numberSequence = new RecamanSequence();
                     break;
             }
             setListAdapter(new NumberAdapter(numberSequence));
