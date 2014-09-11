@@ -1,21 +1,22 @@
 package com.github.premnirmal.sequences;
 
-import android.util.LongSparseArray;
+import android.util.SparseBooleanArray;
 
 /**
  * Created by premnirmal on 9/11/14.
  */
-public class RecamanSequence implements NumberSequence<Long> {
+public class RecamanSequence implements NumberSequence<Integer> {
 
-    private LongSparseArray<Long> previousValues = new LongSparseArray<Long>();
+    private SparseBooleanArray previousValues = new SparseBooleanArray();
 
     @Override
-    public Long getNumber(int index) {
+    public Integer getNumber(int index) {
         if (index == 0) {
-            return (long) 0;
+            return (int) 0;
         } else {
-            Long previous = getNumber(index - 1);
-            if (previousValues.get(previous - index) != null) {
+            Integer previous = getNumber(index - 1);
+            if (previous - index > 0 && previousValues.get((previous - index)) == false) {
+                previousValues.put((previous - index), true);
                 return previous - index;
             } else {
                 return previous + index;
